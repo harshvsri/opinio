@@ -1,3 +1,32 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Error</title>
+    <link rel="stylesheet" href="/stylesheets/error.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <section class="page_404">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+              <div class="img_404"></div>
+              <div class="content_box_404">
+                <h1><%= message %> <%= error.status %></h1>
+                <!-- This provides some context, showing the user where the error was -->
+                <!-- <pre><%= error.stack %></pre> -->
+                <h3 class="h2">Look like you're lost</h3>
+                <p>the page you are looking for not available!</p>
+                <a href="/" class="link_404">Go to Home</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

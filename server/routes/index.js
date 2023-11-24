@@ -4,22 +4,17 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   const messages = await Message.find({});
-  res.send(messages);
-  // res.render("index");
-});
-
-router.get("/add", (req, res) => {
-  res.render("add");
+  res.json(messages);
 });
 
 router.post("/add", async (req, res) => {
   const { username, text } = req.body;
   const isUser = await Message.findOne({ username: username });
   if (isUser) {
-    res.send("User already exists");
+    res.json({ message: "User already exists" });
   } else {
     await Message.insertMany([{ username, text }]);
-    res.redirect("/");
+    res.json({ message: "Message added successfully" });
   }
 });
 
